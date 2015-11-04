@@ -1,0 +1,10 @@
+Collaboration : élément parent. Contient :
+    CollaborationRoles : représente les rôles qui doivent être
+        remplis par des objets dans la collaboration.
+        Spécifié par un Classifier (type de l'objet) : Propriétés
+        que l'objet doit posséder pour pouvoir jouer ce rôle.
+    Connectors : connecteurs entre deux CollaborationRoles.
+        Peuvent spécifier quelles relations doivent exister
+        entre les objets qui vont jouer les rôles.
+        
+Une Collaboration peut spécialiser (=hériter de) une autre Collaboration.

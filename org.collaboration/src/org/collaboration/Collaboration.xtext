@@ -2,8 +2,9 @@ grammar org.collaboration.Collaboration with org.eclipse.xtext.common.Terminals
 
 generate collaboration "http://www.collaboration.org/Collaboration"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+Collaboration:
+	'collaboration' name = ID ('extends' parent = Collaboration)?
+	'{'
+		
+	'}'
+;

@@ -2,9 +2,22 @@ grammar org.collaboration.Collaboration with org.eclipse.xtext.common.Terminals
 
 generate collaboration "http://www.collaboration.org/Collaboration"
 
+File:
+	(collabs += Collaboration ';')*
+;
+
 Collaboration:
-	'collaboration' name = ID ('extends' parent = Collaboration)?
+	'collaboration' name = ID ('extends' parent = [Collaboration])?
 	'{'
-		
+		(roles += Role ';')*
+		(connectors += Connector ';')*
 	'}'
+;
+
+Role:
+	'role' name = ID (':' type = ID)?
+;
+
+Connector:
+	'connector(' role1 = [Role] ',' role2 = [Role] ')'
 ;

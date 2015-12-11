@@ -9,7 +9,7 @@ File:
 Collaboration:
 	'collaboration' name = ID ('extends' parent = [Collaboration])?
 	'{'
-		(items += (Role | Connector) ';')*
+		(items += (Role | Connector | CollaborationUse) ';')*
 	'}'
 ;
 
@@ -24,10 +24,14 @@ Connector:
 CollaborationUse:
 	'collaborationUse' name = ID ':' collab = [Collaboration]
 	'{'
-		(roles += RoleAffectation collab)*
+		(roles += RoleAffectation ';')*
 	'}'
 ;
 
 RoleAffectation:
-	roleHost = [Role] '=' roleUse = [Role]
+	host = [Role] '=' use = [Role|QualifiedName]
+;
+
+QualifiedName:
+	ID ('.' ID)*
 ;

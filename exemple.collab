@@ -1,0 +1,21 @@
+collaboration macollab
+{
+	role caller : objet;
+	role called : objet;
+	connector(called,caller);
+};
+collaboration macollab2
+{
+	role r1 : objet;
+	role r2;
+	collaborationUse mause : macollab
+	{
+		called = r1;
+		caller = r2;
+	};
+};
+collaboration macb3
+{
+	role fail : obj;
+};
+

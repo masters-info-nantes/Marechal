@@ -29,7 +29,7 @@ CollaborationUse:
 ;
 
 RoleAffectation:
-	host = [Role] '=' use = [Role|QualifiedName]
+	use = [Role|QualifiedName] '=' host = [Role]
 ;
 
 QualifiedName:

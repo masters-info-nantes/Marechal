@@ -1,0 +1,20 @@
+--@path UML=/Marechal/org.collaboration.atl/UML.ecore
+--@path Collab=/Marechal/org.collaboration/model/generated/Collaboration.ecore
+
+module Collab2Uml;
+
+create OUT : UML from IN : Collab;
+
+rule Collab2Collab {
+	from myCollab : Collab!Collaboration
+	to umlCollab : UML!Collaboration(
+		collaborationRole <- myCollab.items->select(role | role.oclType().conformsTo(Collab!Role))
+	)
+}
+
+rule Role2Role {
+	from myRole : Collab!Role
+	to umlRole : UML!ConnectableElement(
+		name <- myRole.name
+	)
+}
